@@ -1,0 +1,9 @@
+<RCC>
+  <qresource prefix="image">
+    <file>swiss-marketing-knife.png</file>
+    <file>checkbox.png</file>
+    <file>down_arrow.png</file>
+    <file>handle.png</file>
+    <file>mail.png</file>
+  </qresource>
+</RCC>
