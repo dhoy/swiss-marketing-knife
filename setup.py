@@ -51,7 +51,7 @@ bdist_msi_options = {
     #'initial_target_dir': r'[Program Files] \%s\%s' % ('test', 'test'),
     }
 setup(
-     version = "2.14",
+     version = "2.20",
      description = "Tool to help James match email address by DMCID, and now much, much more!",
      author = "David Hoy",
      name = "Swiss Marketing Tool",

@@ -14,6 +14,7 @@ from datetime import datetime, timedelta
 from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, qApp, QWidget,\
     QLabel, QSizePolicy, QVBoxLayout, QTableWidgetItem, QFileDialog
 from PyQt5 import QtNetwork, QtWebKit, QtPrintSupport # these are needed for the qwebview for some reason.
+
 from PyQt5.QtCore import QThread, pyqtSignal, Qt, QUrl
 from ui import Ui_MainWindow
 from email.mime.multipart import MIMEMultipart
@@ -374,9 +375,9 @@ class FTPWindow(QMainWindow, Ui_MainWindow):
     def save_export(self, file_name, ls_results):
         with open(file_name, 'w', newline='') as output:
             wr = csv.writer(output)
-            wr.writerow(['Email Address', 'Subscriber_info\DMCID', 'Subscriber_info\Last_DM_group'])
+            wr.writerow(['First_name', 'Last_name', 'Email Address', 'Subscriber_info\DMCID', 'Subscriber_info\Last_DM_group'])
             for val in ls_results:
-                wr.writerow([val[0], val[1], val[2]])
+                wr.writerow([val[0], val[1], val[2], val[3], val[4]])
             output.close()        
         
     def process_cc(self, file_path):
@@ -871,7 +872,7 @@ class MatchCampaigns(QThread):
         row_count = 0
         ls_matches = []
         for i in ds:
-            ls_matches.append([i[0], i[1], i[2]])
+            ls_matches.append([i[0], i[1], i[2], i[3], i[4]])
             row_count += 1
         
         #Tell caller I'm finished.
